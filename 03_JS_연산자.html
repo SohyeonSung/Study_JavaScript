@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title> JS 연산자 </title>
+<script>
+    /*
+    산술연산자 : +, -, *,, /, %, **(제곱)
+    증감연산자 : ++, --
+    대입연산자(복합) : =, +=, -=, *=, /=, %=, **= 
+    비교연산자 : >, <, >=, <=, ==, !=, ===, !==
+        - (==  값일치 true)
+        - (!=  값불일치 true)
+        - (=== 동일여부(값+타입) 일치 true) 
+        - (!== 다름여부(값 또는 타입) 불일치 true)
+    논리연산자 : &&(AND), ||(OR), !(NOT)
+    삼항연산자 : (조건식) ? (실행문1) : (실행문2);
+    */
+    
+    let num1 = 100;
+    let num2 = 3;
+    document.write("num1 ** num2 : " + num1**num2, "<br>");
+    document.write("<hr>");
+    
+    document.write("100 == 100 : " + (100 == 100), "<br>");   //true
+    document.write('100 == 100 : ' + (100 == "100"), "<br>"); //true (숫자열100과 문자열100)
+    document.write("100 != 100 : " + (100 != 100), "<br>");   //false
+    document.write('100 != 100 : ' + (100 != "100"), "<br>"); //false (숫자열100과 문자열100) 
+    
+    document.write("<h3> ===, !== (값+타입까지 비교) </h3>")
+    document.write("100 === 100 : " + (100 === 100), "<br>");   //true (값일치, 타입일치)
+    document.write('100 === 100 : ' + (100 === "100"), "<br>"); //false (값일치, 타입불일치)
+    document.write("100 !== 100 : " + (100 !== 100), "<br>");   //false (값일치, 타입일치)
+    document.write('100 !== 100 : ' + (100 !== "100"), "<br>"); //true (값일치, 타입불일치)
+    
+    document.write("<hr>");
+    
+</script>
+</head>
+<body>
+
+</body>
+</html>
