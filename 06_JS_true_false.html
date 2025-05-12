@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS: true, false</title>
+<script>
+    // 자바스크립트 true, false 값 
+    // JS : false 가 아니면 모두 true
+    // false 값 : false, 0 (또는 -0), undefined, NaN, null, ""(빈문자열)
+    // true 값 : false 가 아니면 모두 true
+    //   - 숫자 : 0, -0 이 아닌 모든 숫자
+    //   - 문자열 : ""(빈문자열)이 아닌 모든 문자열
+    //   - 객체 : null 이 아닌 모든 객체
+    // true 값 예) 1, 100, -123, "홍길동", null 이 아닌 모든 객체
+    //--------------------------------------
+    document.write('<h3>false 값 : false, 0 (또는 -0), undefined, NaN, null, ""(빈문자열)</h3>');
+    document.write("false : " + Boolean(false), "<br>");
+    document.write("0 : " + Boolean(0), "<br>");
+    document.write("-0 : " + Boolean(-0), "<br>");
+    document.write("undefined : " + Boolean(undefined), "<br>");
+    document.write("NaN : " + Boolean(NaN), "<br>");
+    document.write("null : " + Boolean(null), "<br>");
+    document.write('""(빈문자열) : ' + Boolean(""), "<br>");
+    document.write("<hr>");
+    
+    document.write('<h3>true 값 : false 가 아니면 모두 true</h3>');
+    document.write("true : " + Boolean(true), "<br>");
+    document.write("1 : " + Boolean(1), "<br>");
+    document.write("100 : " + Boolean(100), "<br>");
+    document.write("test : " + Boolean("test"), "<br>");
+    document.write("ABC : " + Boolean("ABC"), "<br>");
+    document.write("홍길동 : " + Boolean("홍길동"), "<br>");
+    document.write("100 + 200 : " + Boolean(100 + 200), "<br>");
+    document.write("<hr>");
+    
+    // 비교문 작성시 주의 필요
+    let a = 100;
+    document.write("a : " + a, "<br>");
+
+    
+    //(주의) 문법오류없이 처리됨
+    //변수 a에 값 50이 저장되고, true/false 판별처리
+    if (a = 50) {
+        document.write(">> 결과 true : a 가 50이다", "<br>");
+    } else {
+        document.write(">> 결과 false : a 가 50이 아니다", "<br>");
+    }
+    document.write("a : " + a, "<br>");
+    document.write("<hr>");
+    
+    //-----------------
+    // Infinity : 무한대(Infinite)를 나타내는 특수 숫자 값
+    let infinity = 1 / 0; //연산처리되고, 결과값 Infinity
+    document.write("1 / 0 연산결과 : " + infinity, "<br>"); //Infinity
+    document.write("1 / 0 연산결과(true/false) : " + Boolean(1 / 0), "<br>");
+    
+    document.write("1 / 0 - 1 연산결과 : " + (1 / 0 - 1), "<br>"); //Infinity
+    document.write("1 / 0 / 9999999999999999999999 연산결과 : " 
+            + (1 / 0 / 9999999999999999999999), "<br>"); //Infinity
+</script>    
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+
