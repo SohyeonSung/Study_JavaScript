@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>while, do~while</title>
+    <script>
+        // while (조건식) { }
+        // do { } while (조건식);
+        //-----------------------
+        // while 문으로 1~10 까지 합계 구하고 출력
+        document.write("<h3> while </h3>");
+        let num = 1;
+        let sum = 0;
+        while (num <= 10) {
+            sum += num;
+            //console.log("num: " + num);
+            document.write("num: " + num, "<br>");
+            num++;
+        }
+        document.write("1~10까지의 합 : " + sum);
+        document.write("<hr>");
+        //-------------------------
+        document.write("<h3> do-while </h3>");
+        num = 1;
+        sum = 0;
+        do {
+            sum += num;
+            document.write("num: " + num, "<br>");
+            num++;
+        } while (num <= 10);
+        document.write("1~10까지의 합 : " + sum);
+        document.write("<hr>");
+        //=======================================
+
+        //반복문 제어 : break, continue
+        //break : 현재 실행 중인 반복문 종료하고 빠져나감
+        //continue : continue문 이후의 실행문을 실행하지 않고, 다음 반복을 진행
+
+        document.write("<h3>break : 현재 실행중인 반복문 종료하고 빠져나감</h3>");
+        num = 1;
+
+        while (num <= 10) {
+            document.write("num : " + num, "<br>");
+            if (num === 5) {
+                document.write(">> break 문 만나서 반복 종료~~", "<br>");
+                break; // 현재 진행중인 반복문 종료
+            }
+            num++;
+        }
+        document.write("--- 반복문 종료");
+        document.write("<hr>");
+
+        document.write("<h3>continue : 다음 반복 진행</h3>");
+        num = 0;
+        while (num < 10) {
+            num++;
+            if (num === 5) {
+                document.write(">> continue 문 만나서 다음 반복 진행", "<br>");
+                continue; // 다음 반복 진행
+            }
+            document.write("num : " + num, "<br>");
+        }
+        document.write("--- 반복문 종료");
+        document.write("<hr>");
+
+        outerLoop:
+            for (let outer = 1; outer <= 5; outer++) {
+                document.write("outer: " + outer + "=============", "<br>");
+                for (let inner = 1; inner <= 5; inner++) {
+                    document.write("inner: " + inner, "<br>");
+                    if (outer === 3) {
+                        //continue; //내부반복문에서 다음 반복 계속
+                        continue outerLoop; //외부 반복문 3인 경우 건너뜀
+                    }
+                    if (outer === 4 && inner === 3) {
+                        //break; //현재 실행중인 내부반복문 중단처리
+                        break outerLoop; //외부 반복문 중단처리(반복처리 완전 종료)
+                    }
+                    document.write("outer: " + outer + ", inner: " + inner, "<br>");
+                }
+                document.write("-------------<br>");
+            }
+
+        document.write(">>> 반복문 종료 후 문장");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

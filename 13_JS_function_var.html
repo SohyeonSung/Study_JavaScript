@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS function</title>
+<script>
+    // var 선언변수의 사용범위 function
+    // var, function : hoisting - 선언이 끌어올려짐
+    //----------------------
+    document.write("var 선언문 이전 globalVar : " + globalVar, "<br>");
+    var globalVar = "전역변수 globalVar";
+    document.write("var 선언 후 globalVar : " + globalVar, "<br>");
+    document.write("<hr>");
+    
+    displayMsg(); //함수 호출(실행)
+    
+    // function 선언(함수선언)
+    function displayMsg(param) {
+        document.write("function displayMsg() 시작---------", "<br>");
+        document.write("-->> 파라미터 param : " + param, "<br>");
+        document.write("-->> globalVar : " + globalVar, "<br>");
+        
+        //함수 내에서 선언된 var 변수는 지역변수(함수내에서만 사용가능)
+        var localVar = "function 내에서 선언된 var변수";
+        document.write("-->> localVar : " + localVar, "<br>");
+        
+        document.write("function displayMsg() 끝---------", "<br>");
+    }
+    
+    // function 내부에 선언된 변수는 외부에서 사용못함
+    // ReferenceError: localVar is not defined
+    //document.write("function 외부 localVar : " + localVar, "<br>");
+    
+    displayMsg("param값전달");
+    
+</script>    
+</head>
+<body>
+    
+</body>
+</html>
