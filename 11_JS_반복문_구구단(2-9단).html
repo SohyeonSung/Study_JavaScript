@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>구구단(2-9단)</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+    <script>
+        // 테이블형태의 구구단 작성하기 (2-9단)
+        document.write("<h1>구구단(2-9단) / 스크립트 </h1>");
+
+        document.write("<table border>");
+        document.write("<tr>");
+        for (let dan = 2; dan <= 9; dan++) {
+            document.write("<th>" + dan + "단</th>");
+        }
+        document.write("</tr>");
+
+        for (let i = 1; i <= 9; i++) {
+            document.write("<tr>");
+            for (let dan = 2; dan <= 9; dan++) {
+                document.write("<td>" + dan + " * " + i + " = " + (dan * i) + "</td>");
+            }
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    </script>
+</head>
+
+<body>
+    <h1>구구단(2-9단) / body</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>2단</th>
+                <th>3단</th>
+                <th>4단</th>
+                <th>...</th>
+                <th>9단</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2*1=2</td>
+                <td>3*1=3</td>
+                <td>4*1=4</td>
+                <td>...</td>
+                <td>9*1=9</td>
+            </tr>
+            <tr>
+                <td>2*2=4</td>
+                <td>3*2=6</td>
+                <td>4*2=8</td>
+                <td>...</td>
+                <td>9*2=18</td>
+            </tr>
+            <tr>
+                <td>2*3=6</td>
+                <td>3*3=9</td>
+                <td>4*3=12</td>
+                <td>...</td>
+                <td>9*3=27</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+            <tr>
+                <td>2*9=18</td>
+                <td>3*9=27</td>
+                <td>4*9=36</td>
+                <td>...</td>
+                <td>9*9=81</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body></html>

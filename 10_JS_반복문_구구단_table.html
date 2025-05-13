@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> JS : 구구단 table </title>
+    <script>
+        // for문 사용해서 테이블 형태로 출력
+        let dan = prompt("출력할 구구단 : ", "1");
+        dan = parseInt(dan);
+
+        document.write("<table border>");
+        document.write("<tr>");
+        document.write("<th>" + dan + "단</th>");
+        document.write("</tr>");
+
+        for (let i = 1; i <= 9; i++) {
+            document.write("<tr>");
+            document.write("<td>" + dan + " x " + i + " = " + (dan * i) + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        document.write("<hr>");
+
+        //html이용
+        let htmlTag = "";
+
+        htmlTag += "<table border>";
+        htmlTag += "<tr>";
+        htmlTag += "<th>" + dan + "단</th>";
+        htmlTag += "</tr>";
+
+        for (let i = 1; i <= 9; i++) {
+            htmlTag = "<tr>";
+            htmlTag += "<td>";
+            htmlTag += dan + "*" + i + "=" + (dan * i);
+            htmlTag += "</td>";
+            htmlTag += "</tr>";
+        }
+        htmlTag += "</table>";
+        document.write(htmlTag);
+        console.log(htmlTag);
+        document.write("<hr><hr>");
+
+    </script>
+</head>
+
+<body>
+    <h1> 구구단 </h1>
+    <table border>
+        <tr>
+            <th> 3단 </th>
+        </tr>
+        <tr>
+            <td> 3 x 1 = 3 </td>
+        </tr>
+        <tr>
+            <td> 3 x 2 = 6 </td>
+        </tr>
+        <tr>
+            <td> 3 x 3 = 9 </td>
+        </tr>
+        <tr>
+            <td> ... </td>
+        </tr>
+        <tr>
+            <td> 3 x 9 = 27 </td>
+        </tr>
+    </table>
+</body>
+
+</html>

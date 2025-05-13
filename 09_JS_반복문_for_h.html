@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS 반복문</title>
+    <script>
+        document.write("<h1>JS HTML h 태그</h1>");
+        document.write("<h2>JS HTML h 태그</h2>");
+        document.write("<hr>");
+
+
+        //반복문 사용해서 h1~h6태그 생성=============================
+        for (let i = 1; i <= 6; i++) {
+            document.write("<h" + i + ">for문으로 작성한 h태그</h" + i + ">");
+        }
+        document.write("<hr><hr>");
+
+        //htmlTag 이용해 h태그 생성=================================
+        let htmlTag = "";
+        for (let i = 1; i <= 6; i++) {
+            htmlTag += "<h" + i + ">h태그-for문으로 작성</h" + i + ">";
+        }
+        document.write(htmlTag);
+
+        console.log(htmlTag);
+        alert(htmlTag);
+        document.write("<hr><hr>");
+    </script>
+</head>
+
+<body>
+    <h1>body HTML h 태그</h1>
+    <h2>HTML h 태그</h2>
+    <h3>HTML h 태그</h3>
+</body></html>
