@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>2차원배열</title>
+    <script>
+        // 배열(Array) 2차원 배열
+        // [ [], [] ]
+        let arr = [
+            ["홍길동", 27, "서울"],
+            ["김유신", 30, "부산"]
+        ];
+        document.write("arr.length : " + arr.length, "<br>");
+        console.log(arr);
+        document.write("arr[0] : " + arr[0], "<br>");
+        document.write("arr[0].length : " + arr[0].length, "<br>");
+        document.write("arr[0][0] : " + arr[0][0], "<br>");
+        document.write("arr[0][1] : " + arr[0][1], "<br>");
+        document.write("arr[0][2] : " + arr[0][2], "<br>");
+        document.write("arr[1] : " + arr[1], "<br>");
+        document.write("<hr>");
+
+        // 김유신 --> 을지문덕 : 수정(변경)
+        document.write("arr[1][0] : " + arr[1][0], "<br>");
+        document.write(":: 김유신 --> 을지문덕 : 수정(변경)", "<br>");
+        arr[1][0] = "을지문덕";
+        document.write("arr[1][0] : " + arr[1][0], "<br>");
+        document.write("arr[1] : " + arr[1].toString(), "<br>");
+        document.write("arr[1][0] : " + arr[1][0], "<br>");
+        document.write("arr[1][1] : " + arr[1][1], "<br>");
+        document.write("arr[1][2] : " + arr[1][2], "<br>");
+        document.write("<hr>");
+
+        //====================
+        arr = new Array(new Array("홍길동", 27, "서울"),
+            new Array("김유신", 30, "부산"));
+        document.write("arr.length : " + arr.length, "<br>");
+        document.write("arr[0] : " + arr[0], "<br>");
+        document.write("arr[0].length : " + arr[0].length, "<br>");
+        document.write("arr[0][0] : " + arr[0][0], "<br>");
+        document.write("arr[0][1] : " + arr[0][1], "<br>");
+        document.write("arr[0][2] : " + arr[0][2], "<br>");
+
+        document.write("arr[1] : " + arr[1].toString(), "<br>");
+        document.write("arr[1].length : " + arr[1].length, "<br>");
+        document.write("arr[1][0] : " + arr[1][0], "<br>");
+        document.write("arr[1][1] : " + arr[1][1], "<br>");
+        document.write("arr[1][2] : " + arr[1][2], "<br>");
+        document.write("<hr>");
+
+        arr = new Array();
+        arr[0] = new Array();
+        arr[1] = new Array("김유신", 30, "부산");
+        arr[0][0] = "홍길동";
+        arr[0][1] = 27;
+        arr[0][2] = "서울";
+
+        document.write("arr.length : " + arr.length, "<br>");
+        document.write("arr[0] : " + arr[0], "<br>");
+        document.write("arr[0].length : " + arr[0].length, "<br>");
+        document.write("arr[0][0] : " + arr[0][0], "<br>");
+        document.write("arr[0][1] : " + arr[0][1], "<br>");
+        document.write("arr[0][2] : " + arr[0][2], "<br>");
+        document.write("--------<br>");
+        document.write("arr[1] : " + arr[1].toString(), "<br>");
+        document.write("arr[1].length : " + arr[1].length, "<br>");
+        document.write("arr[1][0] : " + arr[1][0], "<br>");
+        document.write("arr[1][1] : " + arr[1][1], "<br>");
+        document.write("arr[1][2] : " + arr[1][2], "<br>");
+        document.write("<hr><hr>");
+
+        // (실습) 반복문 사용해서 arr 전체 데이터 화면 출력
+            let arr1 = [
+                ["홍길동", 27, "서울"],
+                ["김유신", 30, "부산"],
+                ["짱구", 13, "일본"],
+                ["심슨", 48, "미국"],
+                ["둘리", 30, "우주"],
+            ];
+        
+        // 기본 for문 방식
+        for (let i = 0; i < arr1.length; i++) {
+            for (let j = 0; j < arr1[i].length; j++) {
+                document.write(arr1[i][j] + ' ');
+            }
+            document.write('<br>');
+        }
+        document.write('<hr>')
+        
+        // for~of 방식 
+        for (let row of arr1) {
+            for (let value of row) {
+                document.write(value + " ");
+            }
+            document.write("<br>");
+        }
+        document.write('<hr>')
+        
+        // for~in 방식
+        for (let i in arr1) {
+            for (let j in arr1[i]) {
+                document.write(arr1[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+        document.write('<hr>')
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

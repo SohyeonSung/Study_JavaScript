@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title> JS : Math </title>
+<script>
+    /* Math 내장객체
+    Math.PI (파이값 : 3.141592 ..)
+    Math.abs(숫자) : 절대값
+    Math.max(숫자1, 숫자2, ... 숫자n) : 최댓값 반환
+    Math.min(숫자1, 숫자2, ..., 숫자 n) : 최소값 반환
+    Math.pow(숫자, 제곱값) : 숫자의 거듭제곱값 반환
+    Math.random() : 0~1사이의 실수형 난수반환(0: 포함, 1: 제외)
+    Math.round(숫자) : 소수점 첫째자리에서 반올림
+    Math.ceil(숫자) : 소수점 첫째자리에서 올림(큰 수 선택)
+    Math.floor(숫자) : 소수점 첫째자리에서 내림(작은 수 선택)
+    Math.sign(숫자) : 양수->1, 0->0, 음수->-1 확인
+    ********************************************/
+    
+    //파이값 
+    document.write("Math.PI : " + Math.PI, "<br>");
+    //절대값
+    document.write("Math.abs(-1) : " + Math.abs(-1), "<br>");
+    //최댓값
+    let maxNum = Math.max(10, 5, 6, 8, 11);
+    document.write("Math.max(10, 5, 6, 8, 11) : " + Math.max(10, 5, 6, 8, 11), "<br>");
+    //최솟값
+    let minNum = Math.min(10, 5, 6, 8, 11);
+    document.write("Math.min(10, 5, 6, 8, 11) : " + Math.min(10, 5, 6, 8, 11), "<br>");
+    //거듭제곱
+    document.write("Math.pow(2, 8) : " + Math.pow(2, 8), "<br>");
+    //난수
+    document.write("Math.random() : " + Math.random(), "<br>");
+    //소수점 첫째자리에서 반올림
+    document.write("Math.round(3.1816532) : " + Math.round(3.1816532), "<br>");
+    //소수점 첫째자리에서 올림
+    document.write("Math.ceil(3.1816532) : " + Math.ceil(3.1816532), "<br>");
+    //소수점 첫째자리에서 내림
+    document.write("Math.floor(3.1816532) : " + Math.floor(3.1816532), "<br>");
+    //양수->1, 0->0, 음수->-1
+    document.write("Math.sign(3.1816532) : " + Math.sign(3.1816532), "<br>");
+    
+    
+</script>
+</head>
+<body>
+
+</body>
+</html>

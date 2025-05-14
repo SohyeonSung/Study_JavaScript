@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Array 배열객체</title>
+<script>
+    /* 배열(Array) 생성방법 3가지
+    1. let arr1 = new Array();
+    2. let arr2 = new Array("홍길동", 27, true);
+    3. let arr3 = ["홍길동", 27, true];
+    ***********************/
+    //1. let arr1 = new Array();
+    document.write("<h3>배열 생성 let arr1 = new Array();</h3>");
+    let arr1 = new Array();
+    document.write("arr1.length : " + arr1.length, "<br>");
+    document.write("arr1 : " + arr1, "<br>");
+    console.log(arr1);
+    
+    arr1[0] = "홍길동";
+    arr1[1] = 27;
+    arr1[2] = true;
+    
+    document.write("arr1.length : " + arr1.length, "<br>");
+    document.write("arr1 : " + arr1.toString(), "<br>");
+    console.log(arr1);
+    
+    document.write("arr1[0] : " + arr1[0], "<br>");
+    document.write("arr1[1] : " + arr1[1], "<br>");
+    document.write("arr1[2] : " + arr1[2], "<br>");
+    document.write("<hr>");
+    
+    document.write("arr1[3] : " + arr1[3], "<br>"); //undefined
+    document.write("arr1[4] : " + arr1[4], "<br>"); //undefined
+    document.write("arr1.length : " + arr1.length, "<br>");
+    document.write("<hr><hr>");
+    
+    //========================
+    //2. let arr2 = new Array("홍길동", 27, true);
+    document.write('<h3>배열 생성 let arr2 = new Array("홍길동", 27, true);</h3>');
+    let arr2 = new Array("홍길동", 27, true);
+    document.write("arr2.length : " + arr2.length, "<br>");
+    document.write("arr2[0] : " + arr2[0], "<br>");
+    document.write("arr2[1] : " + arr2[1], "<br>");
+    document.write("arr2[2] : " + arr2[2], "<br>");
+    document.write("<hr><hr>");
+    
+    //=======================
+    //3. let arr3 = ["홍길동", 27, true];
+    document.write('<h3>배열 생성 let arr3 = ["홍길동", 27, true];</h3>');
+    let arr3 = ["홍길동", 27, true];
+    document.write("arr3.length : " + arr3.length, "<br>");
+    document.write("arr3[0] : " + arr3[0], "<br>");
+    document.write("arr3[1] : " + arr3[1], "<br>");
+    document.write("arr3[2] : " + arr3[2], "<br>");
+    document.write("<hr><hr>");
+    
+    //=======================
+    // 배열 객체에 있는 데이터 확인(반복문)
+    // 기본 for문
+    document.write('<h3>기본 for문으로 배열 데이터 조회</h3>');
+    for (let i = 0; i < arr3.length; i++) {
+        document.write("arr3[" + i + "] : " + arr3[i], "<br>");
+    }
+    
+    document.write('<h3>for ~ in 문으로 배열 데이터 조회 </h3>');
+    for (let idx in arr3) {
+        document.write("arr3[" +  idx + "] : " + arr3[idx], "<br>");
+    }   
+     //------------------------
+    // 배열 : for ~ of 문 형태의 for 문
+    document.write('<h3>for ~ of 문으로 배열 데이터 조회 </h3>');
+    for (let arrValue of arr3) {
+        document.write(arrValue, "<br>");
+    }
+    document.write("<hr><hr>");
+    
+    //=========================
+    document.write("arr3 : " + arr3, "<br>");
+    document.write("arr3.length : " + arr3.length, "<br>");
+    
+    arr3[5] = "김유신";
+    document.write("arr3.length : " + arr3.length, "<br>");
+    console.log(arr3);
+    document.write("<hr>");
+    
+    for (let i = 0; i < arr3.length; i++) {
+        document.write("arr3[" + i + "] : " + arr3[i], "<br>");
+    }
+    document.write("-----------<br>");
+    
+    for (let idx in arr3) {
+        document.write("arr3[" +  idx + "] : " + arr3[idx], "<br>");
+    }
+    document.write("-----------<br>");
+    
+    for (let arrValue of arr3) {
+        document.write(arrValue, "<br>");
+    }
+    document.write("<hr>");
+    
+    for (let i = 0; i < arr3.length; i++) {
+        if (arr3[i] !== undefined) {
+            document.write("arr3[" + i + "] : " + arr3[i], "<br>");
+        }
+    }
+    document.write("-----------<br>");
+    for (let i = 0; i < arr3.length; i++) {
+        if (arr3[i] === undefined) continue;
+        document.write("arr3[" + i + "] : " + arr3[i], "<br>");
+    }
+    
+    
+</script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
