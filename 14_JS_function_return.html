@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+    <script>
+        /* 함수(function) 4가지 유형
+        function 함수명() { } 
+        function 함수명(파라미터변수) { } 
+        function 함수명() { return 리턴값; } 
+        function 함수명(파라미터변수) { return 리턴값; } 
+        ******************/
+
+
+        //function 함수명(파라미터변수) { return 리턴값; } 
+        function plus(a, b) {
+            document.write(">> a: " + a + ", b: " + b, "<br>");
+            return a + b;
+        }
+        let sum = plus(100, 200);
+        document.write("plus(100, 200) : " + sum, "<br>");
+        document.write("plus(300, 400) : " + plus(300, 400), "<br>");
+
+        document.write("plus(111) : " + plus(111), "<br>");
+        document.write("plus() : " + plus(), "<br>");
+        document.write("plus(10, 20, 999) : " + plus(10, 20, 999), "<br>");
+        document.write("<hr>");
+
+        //========================
+        function test() {
+            document.write(">> test() 함수 실행~~", "<br>");
+        }
+        test();
+
+        function test() {
+            document.write(">> test() 함수 재정의 실행~~", "<br>");
+        }
+
+        function test(param) {
+            document.write(">> test(param) 함수 실행 param : " + param, "<br>");
+        }
+        test("파라미터!!!");
+        Document.write("<hr>");
+
+        //========================
+        //(주의) 함수명과 동일한 이름으로 변수선언시 함수는 사용할 수 없게됨
+        // 또는 기존 함수명과 동일한 함수명으로 함수 선언시 기존 함수는 사용 못함
+        var test = "함수명과 동일한 이름의 변수 사용";
+        //let test = "함수명과 동일한 이름의 변수 사용"; //SyntaxError: Identifier 'test' has already been declared
+
+        //test("홍길동"); //TypeError: test is not a function
+
+        document.write("<h3>======== JavaScript 끝 ==========</h3>");
+    </script>
+</head>
+
+<body>
+
+</body></html>
