@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>window.setInterval()</title>
+<script>
+    // window.setInterval() : 정해진 시간마다 반복적으로 동작
+    // setInterval(액션, 밀리초) : 밀리초마다 액션 반복
+    // clearInterval(타이머객체) : 타이머 객체 동작 중지
+    //------------------------
+    let timer;
+    function startTimer() {
+        console.log(">> startTimer() 실행-----");
+        let i = 1;
+        timer = setInterval(function(){
+            console.log("> 타이머 동작중 : " + i++ );
+        }, 2000); //2초마다 
+        console.log("실행 타이머 번호 : " + timer);
+    }
+    
+    function stopTimer() {
+        console.log("stopTimer() 실행~~~~~");
+        console.log("중지할 timer : " + timer);
+        clearInterval(timer);
+    }
+</script>    
+</head>
+<body>
+    <button onclick="startTimer()">타이머 시작</button>
+    <button onclick="stopTimer()">타이머객체 중단(clear)</button>
+
+</body>
+</html>
+
+
+
+
+

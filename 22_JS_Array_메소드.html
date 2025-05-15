@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title> Array Method </title>
+<script>
+    // 배열(Array) 메소드 (기능, function)
+    let arr = ["사당", "교대", "방배", "강남"];
+    document.write("arr : " + arr.toString(), "<br>");
+    document.write("length : " + arr.length, "<br>");
+    
+    // includes() : 배열에 데이터 존재 여부 확인
+    document.write("includes('사당') : " + arr.includes('사당'), "<br>");
+    document.write("includes('압구정') : " + arr.includes('압구정'), "<br>");
+    document.write("<hr>");
+    
+    // reverse() : 배열 데이터 앞 <-> 뒤 위치 바꿈 (뒤집기)
+    document.write("arr : " + arr.toString(), "<br>");
+    let result = arr.reverse();
+    document.write("arr.reverse() 실행 후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("<hr>");
+    
+    // sort() : 배열에 있는 데이터 오름차순 정렬 (문자열 비교 처리)
+    document.write("arr : " + arr, "<br>");
+    result = arr.sort();
+    document.write("arr.sort() 실행 후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("<hr>");
+    
+    // splice(idx [, n개, 입력할데이터]) : idx 시작해서 n개 삭제하고 데이터 추가
+    // 원본 데이터 변경
+    // 리턴값 : 삭제된 데이터
+    document.write("arr : " + arr, "<br>");
+    result = arr.splice(1, 2, "잠실", "시청", "신도림");
+    document.write("arr.splice(1, 2) 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>");
+    document.write("<hr>");
+    
+    // concat(추가할 데이터) : 데이터 합치기/붙이기
+    // 원본 데이터 : 변경없음
+    // 리턴값 : 합해진 데이터
+    document.write("arr : " + arr, "<br>");
+    let arr2 = ["종로1가", "종로2가", "종로3가"];
+    document.write("arr2 : " + arr2, "<br>");
+    result = arr.concat(arr2);
+    document.write("arr.concat(arr2) 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>");
+    document.write("<hr>");
+
+    //===========================================
+    // pop() : 맨 뒤의 데이터 꺼내기 (참조 후 삭제)
+    // push() : 맨 뒤에 데이터 추가하기
+    // -----------------------------------------
+    // shift() : 맨 앞의 데이터 꺼내기 (참조 후 삭제)
+    // unshift() : 맨 앞에 데이터 추가하기
+    //===========================================
+    
+    // pop() : 맨 뒤의 데이터 꺼내기(참조 후 삭제)
+    document.write("arr : " + arr, "<br>");
+    result = arr.pop();
+    document.write("arr.pop() 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); //string
+    document.write("<hr>");
+    
+    // push() : 맨 뒤에 데이터 추가하기
+    // 원본데이터 : 변경됨 / 리턴값은 추가 후 배열 크기값 (length)
+    document.write("arr : " + arr, "<br>");
+    result = arr.push('push1');
+    document.write("arr.push('push1') 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); //string
+    document.write("<hr>");
+    
+    // shift() : 맨 앞의 데이터 꺼내기 (참조 후 삭제)
+    document.write("arr : " + arr, "<br>");
+    result = arr.shift();
+    document.write("arr.shift() 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); //string
+    document.write("<hr>");
+    
+    // unshift() : 맨 앞에 데이터 추가하기
+    document.write("arr : " + arr, "<br>");
+    //result = arr.unshift('unshift1');
+    //result = arr.unshift('unshift2');
+    result = arr.unshift('unshift1', 'unshift2');
+    document.write("arr.unshift('unshift1', 'unshift2') 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); //number
+    document.write("<hr>");
+    
+    // join(구분문자열) : string
+    // 배열데이터를 요소들을 구분문자열로 연결해서 만든 문자열 리턴
+    document.write("arr : " + arr, "<br>");
+    result = arr.join('-');
+    document.write("arr.join('-') 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); //string
+    document.write("<hr>");
+    
+    //======================
+    // map() : 데이터를 가공해서 다시 만들기(mapping)
+    document.write("arr : " + arr, "<br>");
+    result = arr.map(function(str){
+        return "map-" + str;
+    });
+    document.write("arr.map() 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); 
+    document.write("<hr>");
+    
+    // filter() : 콜백함수 결과가 true 인 데이터만 선별하기
+    document.write("arr : " + arr, "<br>");
+    result = arr.filter(function(str){
+        return str.length >= 3;
+    });
+    document.write("arr.filter() 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); 
+    document.write("<hr>");
+    
+    // reduce() : 데이터를 콜백함수 처리해서 단일데이터로 만들기
+    document.write("arr : " + arr, "<br>");
+    result = arr.reduce(function(acc, str){
+        return acc + ":" + str;
+    });
+    document.write("arr.reduce() 실행후 arr : " + arr, "<br>");
+    document.write("리턴값 : " + result, "<br>");
+    document.write("리턴값(type) : " + typeof result, "<br>"); 
+    document.write("<hr>");
+    
+</script>    
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

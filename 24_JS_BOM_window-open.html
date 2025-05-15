@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>window.open()</title>
+    <script>
+    /*
+    window.open(URL, name, specs, replace);
+    *******************************************/
+        function windowOpen() {
+            alert("windowOpen() 실행~~");
+            let pop = window.open("https://www.naver.com", "pop1",
+                "width=400, height=250, top=100, left=200");
+        }
+        
+        function windowOpenCoffee() {
+            alert("windowOpenCoffee() 실행~~");
+            let coffee = window.open("24-2_JS_BOM_window-close.html", "coffee", "width=400, height=250, top=100, left=200");
+        }
+    </script>
+</head>
+
+<body>
+    <h2>BOM window.open()</h2>
+    <button onclick="windowOpen()">Naver 창 열기</button>
+    <button onclick="windowOpenCoffee()"> 커피 </button>
+</body></html>
