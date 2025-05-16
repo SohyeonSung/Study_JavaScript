@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 인접관계선택자</title>
+<script>
+    /* 인접관계선택자
+    // HTMLCollection : HTML 요소(element)만 저장된 객체
+    // NodeList : 모든 노드(요소, 텍스트, 주석 등)
+    // node : element, 텍스트, 주석등
+    parentNode, parentElement : 부모노드 선택
+    childNodes : 모든 자식 노드들 선택(배열형태 - NodeList)
+    children : 자식 노드 중 HTML 태그만(배열형태 - HTMLCollection)
+    firstChild : 첫번째 자식노드(node)
+    previousSibling : 이전 형제 노드(태그, 태그 이외의 노드 포함)
+    nextSibling : 이전 형제 노드(태그, 태그 이외의 노드 포함)
+    
+    firstElementChild : 첫번째 자녀 노드(태그만)
+    lastElementChild : 마지막 자녀 노드(태그만)
+    previousElementSibling : 이전 형제 노드(태그만)
+    nextElementSibling : 이전 형제 노드(태그만)
+    ***********************/
+    window.onload = function(){
+        let child1 = document.getElementById("div1").firstElementChild;
+        console.log("child1 : " + child1);
+        console.log(child1);
+        child1.style.color = "blue";
+        child1.innerHTML = "<h3>내용1 - 변경</h3>";
+        
+        // p 태그중에 2번째 태그
+        let p2 = document.getElementsByTagName("p")[1];
+        p2.style.backgroundColor = "green";
+        
+        // p2(내용2) 기준으로 동일레벨에서 다음(next) 태그 요소
+        p2.nextElementSibling.style.backgroundColor = "yellow";
+        
+        // p2(내용2) 기준으로 동일레벨에서 이전(previous) 태그 요소
+        p2.previousElementSibling.style.backgroundColor = "orange";
+        
+        console.log("--- parentNode, parentElement --- ");
+        console.log(p2.parentNode);
+        console.log(p2.parentElement);
+        
+        //=========================
+        // 속성값 조회/설정
+        let div = document.getElementById("div1");
+        // 속성값 조회(읽기) : getAttribute(속성명)
+        console.log('div.getAttribute("id") : ' + div.getAttribute("id"));
+        console.log('div.getAttribute("title") : ' + div.getAttribute("title"));
+        
+        // 속성값 변경 : setAttribute(속성명, 속성값) 
+        div.setAttribute("title", "변경된 title~~~");
+        console.log('div.getAttribute("title") : ' + div.getAttribute("title"));
+        
+        //===========================
+        console.log(div.childNodes); // NodeList (element, 텍스트(공백등), 주석 등)
+        console.log(div.children);   // HTMLCollection (element 만)
+        
+        for (let i = 0; i < div.children.length; i++) {
+            div.children[i].style.border = "3px solid red";
+        }
+        
+        //(실습) for ~ of 문 사용
+        // div 자녀태그 전체에 스타일 적용
+        // padding 20px 적용
+        // 테두리 CSS 설정 : 두께-5px, 형태-점선, 색상-파란색
+        for (let element of div.children) {
+            console.log(element);
+            element.style.padding = "20px";
+            element.style.border = "5px dotted blue";
+        }
+        //=============================
+//        div.innerHTML = "";
+//        let h3Tag = document.createElement("h3");
+//        h3Tag.textContent = "내용없음";
+//        console.log(h3Tag);
+//        div.appendChild(h3Tag);
+        
+        //div.innerHTML = "<h3>내용없음</h3>";
+        
+    };
+</script>    
+</head>
+<body>
+    <h2>DOM 인접관계선택자</h2>
+    <div id="div1" title="내용묶음div">
+        <!-- div의 자녀요소 : p태그 4개, div 1개 -->
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+        <div>
+            <p>내용5</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+

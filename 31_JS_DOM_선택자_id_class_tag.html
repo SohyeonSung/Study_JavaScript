@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM선택 id, class, tag</title>
+<script>
+    /* DOM 객체 선택시 사용할 메소드
+    document.getElementById("id명") : id 속성 요소 1개 리턴
+    document.getElementsByTagName("태그명") : 동일태그명 요소들(배열형태 리턴)
+    document.getElementsByClassName("class명") : 동일 class명 요소들(배열형태 리턴)
+    document.getElementsByName("name명") : name 속성명 일치 요소들(배열형태 리턴)
+    ------------------
+    document.querySelector("CSS선택자") : 선택된 요소 중 첫번째 요소 1개 리턴
+    document.querySelectorAll("CSS선택자") : 선택된 모든 요소 전체(배열 형태)
+    ***********************/
+    let title = document.getElementById("title"); //DOM 객체 사용 못함
+    console.log("head script 시작 title : " + title); // null : 못찾음
+    
+    // 브라우저에 문서가 모두 로딩이 완료되면 발생하는 이벤트 onload에 콜백함수 작성
+    window.onload = function(){ //DOM 객체 사용 가능
+        console.log(">>> window.onload 이벤트 발생---");
+        title = document.getElementById("title"); 
+        console.log("onload title : " + title);
+        
+        //document.getElementById("title").style.color = "red";
+        //document.getElementById("title").style.backgroundColor = "yellow";
+        title.style.color = "blue";
+        title.style.backgroundColor = "yellow"; // CSS : background-color
+        
+        console.log("---------------");
+        //getElementsByTagName("태그명") : 동일태그명 요소들(배열형태 리턴)
+        console.log(document.getElementsByTagName("h1"));
+        console.log(document.getElementsByTagName("h1")[0]);
+        document.getElementsByTagName("h1")[0].style.color = "red";
+        
+        //getElementsByClassName("class명") : 동일 class명 요소들(배열형태 리턴)
+        let clFoodList = document.getElementsByClassName("food-list");
+        console.log(clFoodList);
+        clFoodList[0].style.backgroundColor = "magenta";
+        clFoodList[1].style.backgroundColor = "magenta";
+        
+        //==================
+        // id명으로 찾기
+        let div1 = document.getElementById("food-1");
+        div1.style.backgroundColor = "orange";
+        div1.style.padding = "10px";
+        div1.style.border = "2px solid black";
+        
+        // 태그명으로 찾기
+        let list = document.getElementsByTagName("li");
+        console.log(list);
+        list[2].style.backgroundColor = "gray";
+        
+        // 체이닝 방식으로 연속 사용
+        let foodList = document.getElementById("food-1")
+                            .getElementsByTagName("li");
+        console.log(foodList);
+        foodList[1].style.backgroundColor = "aqua";
+        foodList[1].style.color = "red";
+        
+        //=============================
+        // 스타일(CSS) 선택자 사용방식
+        // querySelector("CSS선택자") : 선택된 요소 중 첫번째 요소 1개 리턴
+        let selOne = document.querySelector("div > h2");
+        console.log(selOne);
+        selOne.style.backgroundColor = "gray";
+        
+        // querySelectorAll("CSS선택자") : 선택된 모든 요소 전체(배열 형태)
+        let selAll = document.querySelectorAll("div > h2");
+        console.log(selAll);
+        selAll[0].style.border = "3px solid blue";
+        selAll[1].style.border = "3px solid blue";
+        
+        //-------------------
+        for (let i = 0; i < selAll.length; i++) {
+            selAll[i].style.color = "red";
+        }
+        
+        console.log("=================")
+        for (let element of selAll) {
+            element.style.fontStyle = "italic";
+            console.log(element);
+            console.log("element : " + element);
+        }
+        
+    };
+</script>   
+<style>
+    div > h2 { font-size: 2em; }
+</style>
+</head>
+<body>
+    <h1>좋아하는 음식</h1>
+    <h2>한식, 양식</h2>
+    <div id="food-1">
+        <h2 id="title">한식</h2>
+        <ol class="food-list">
+            <li>
+                <a href="#">김치</a>
+            </li>
+            <li>불고기</li>
+            <li>비빔밥</li>
+        </ol>
+    </div>
+    <div id="food-2">
+        <h2>양식</h2>
+        <ul class="food-list">
+            <li>돈까스</li>
+            <li>파스타</li>
+        </ul>
+    </div>
+
+<script>
+    console.log("---- body 끝에 있는 JavaScript 시작");
+    title = document.getElementById("title"); //DOM 객체 사용 가능
+    console.log(">>body 끝 title : " + title); // HTMLHeadingElement
+    console.log(title);
+    //document.getElementById("title").style.border = "2px solid black";
+    //document.getElementById("title").style.backgroundColor = "yellow";
+</script>    
+    
+</body>
+</html>
+
+
+
+
+
