@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BOM window.location</title>
+<script>
+    /* BOM window.location 속성
+    location.href : 주소영역에 있는 URL 정보 설정, 조회
+    location.protocol : URL 프로토콜(통신규약) 조회
+    location.host : URL 호스트 - IP주소(서버명), 포트번호
+    location.hostname : 호스트명(서버명, IP주소) 
+    location.port : 포트번호
+    location.pathname : URL 서버상의 자원 위치정보(path)
+    location.search : URL 상의 요청 쿼리
+    ***********************/
+    document.write("<h3>window.location 속성, 메소드(함수)</h3>");
+    for (let prop in window.location) {
+        document.write(prop + " : " + location[prop], "<br>");
+    }
+    //location.href = "https://m.sports.naver.com/wfootball/article/109/0005307069";
+</script>    
+</head>
+<body>
+ 
+
+</body>
+</html>
+
+
+
+
+

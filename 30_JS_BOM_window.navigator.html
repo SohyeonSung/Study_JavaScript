@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>window.navigator</title>
+<script>
+    /* BOM window.navigator : 사용자 브라우저, 운영체제 정보 등
+    navigator.userAgent : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    navigator.appVersion : 5.0 (Windows NT 10.0; Win64; x64)
+    navigator.language : ko-KR
+    platform : Win32
+    ************************/
+    document.write("<h3>window.navigator 속성, 메소드(함수)</h3>");
+    for (let prop in window.navigator) {
+        document.write(prop + " : " + navigator[prop], "<br>");
+    }
+
+</script>    
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+

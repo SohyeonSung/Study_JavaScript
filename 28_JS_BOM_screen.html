@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BOM window.screen</title>
+<script>
+    /*
+    width : 1366 - 현재 스크린(모니터) 너비값(가로크기)
+    height : 768 - 현재 스크린(모니터) 높이값(세로크기)
+    availWidth : 1366 - 사용가능 너비값(가로크기)
+    availHeight : 768 - 사용가능 높이값(세로크기)
+    colorDepth : 24 - 표현가능 색상 값(bit)
+    pixelDepth : 24
+    availLeft : 0
+    availTop : 0
+    ********************/
+    document.write("<h3>window.screen 속성, 메소드(함수)</h3>");
+    for (let prop in window.screen) {
+        document.write(prop + " : " + screen[prop], "<br>");
+    }
+    
+    document.write("현재 사용가능 가로크기 : " + screen.availWidth);
+</script>    
+</head>
+<body>
+ 
+
+</body>
+</html>
+
+
+
+
+
