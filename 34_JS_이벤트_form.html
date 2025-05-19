@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>form 이벤트</title>
+<script>
+    //window.onload = function(){};
+    window.addEventListener("load", function(){
+        console.log(":: window.onload 이벤트 처리");
+        console.log("document.forms : " + document.forms);
+        console.log(document.forms);
+        
+        //첫번째 폼요소 이벤트 처리(submit 클릭)
+        //일반명칭 사용방식 : document.id명 사용해서 접근
+        document.frm1.onsubmit = submitFrm1;
+        
+        //(실습)비밀번호 보기(type=button) 버튼 클릭시 암호확인작업 처리
+        //document.getElementById("viewBtn").onclick = btnClick;
+        document.getElementById("viewBtn").addEventListener("click", btnClick);
+        
+        //-------------------------------
+        // 두번째 폼요소 이벤트 처리(submit 처리시)
+        document.frm2.onsubmit = function(){
+            //alert("frm2 submit 이벤트 발생~~~");
+            //alert(document.getElementById("accept"));
+            //console.log(document.querySelector("#accept"));
+            let accept = document.frm2.accept;
+            alert("accept.checked : " + accept.checked);
+            if (accept.checked == false) {
+                alert("약관에 동의해야 합니다\n약관동의 체크하세요");
+                return false; //submit 처리 취소
+            }
+        };
+        
+        //두번째 폼요소의 전체선택 체크박스 이벤트 처리
+        document.getElementById("allchk").onclick = function(){
+            console.log("전체선택 click!!!");
+        };
+        
+        let subject1 = document.getElementById("subject1");
+        document.getElementById("allchk").addEventListener("change", function(){
+            console.log("전체선택 change!!!");
+            console.log("this.checked : " + this.checked); //true, false
+            if (this.checked) {
+                console.log(">>전체선택 체크 상태~~");
+                //document.getElementById("subject1").checked = true;
+                subject1.checked = true;
+                document.getElementById("subject2").checked = true;
+                document.getElementById("subject3").checked = true;
+            } else {
+                console.log(">>전체선택 체크 해제 상태");
+                //document.querySelector("#subject1").checked = false;
+                //document.querySelector("#subject2").checked = false;
+                //document.querySelector("#subject3").checked = false;
+                
+                //클래스명으로 찾기(class=subject)
+                //let subjects = document.getElementsByClassName("subject");
+                let subjects = document.querySelectorAll(".subject");
+                console.log(subjects);
+                for (let subject of subjects) {
+                    subject.checked = false;
+                }
+            }
+            
+        });
+        
+        
+    }); //load 끝
+    
+    function btnClick(){
+        alert("function btnClick() 실행!!!");
+        let pw1 = document.querySelector("#user-pw1");
+        let pw2 = document.getElementById("user-pw2");
+        pw2.value = pw1.value;
+        pw2.disabled = true;
+    }
+    
+    function submitFrm1(){
+        alert(">> frm1 submit 이벤트 발생 - function submitFrm1() 실행");
+        //pw1의 값을 읽어서 pw2에 출력(전달)
+        //let pw1 = document.frm1.pw1; //권장안함
+        
+        //let pw1 = document.getElementById("user-pw1"); //명시적 찾기 권장
+        let pw1 = document.querySelector("#user-pw1"); //id 사용시 # 붙일것
+        console.log("pw1 : " + pw1);
+        console.log("pw1.value : " + pw1.value);
+        
+        let pw2 = document.getElementById("user-pw2");
+        pw2.value = pw1.value;
+        console.log("pw2.value : " + pw2.value);
+        pw2.disabled = true; // disable 속성 : 서버쪽 전송안함(사용안함) + 화면 수정못함
+        
+        return false; //서버전송 안함(submit 취소)
+    }
+</script>    
+</head>
+<body>
+    <form name="frm1" id="frm1">
+        <fieldset>
+            <legend>폼요소1(비밀번호 확인)</legend>
+            <p>
+                <label for="user-pw1">비밀번호</label>
+                <input type="password" name="pw1" id="user-pw1" value="1234">
+            </p>
+            <p>
+                <label for="user-pw2">확인된 비밀번호</label>
+                <input type="text" name="pw2" id="user-pw2">
+            </p>                
+                <input type="submit" value="비밀번호 보기(type=submit)">
+                <input type="button" value="비밀번호 보기(type=button)" id="viewBtn">
+        </fieldset>
+    </form>
+
+    <form name="frm2" id="frm2">
+        <fieldset>
+            <legend>폼요소2(약관동의/선택)</legend>
+            <div id="terms">
+                서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 서비스의 이용과 관련하여 네이버 서비스를 제공하는 주식회사 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+            </div>
+            <p>
+                <input type="checkbox" name="accept" id="accept" value="1">
+                <label for="accept">약관에 동의합니다</label>
+            </p>
+            
+            <p>
+                <input type="checkbox" name="allCheck" id="allchk">
+                <label for="allchk">전체선택</label>
+                
+                <input type="checkbox" name="subject1" id="subject1" class="subject">
+                <label for="subject1">과목1</label>
+                
+                <input type="checkbox" name="subject2" id="subject2" class="subject">
+                <label for="subject2">과목2</label>
+                
+                <input type="checkbox" name="subject3" id="subject3" class="subject">
+                <label for="subject3">과목3</label>
+            </p>
+            
+            <p>
+                <input type="submit" value="등록">
+                <input type="reset" value="초기화">
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
