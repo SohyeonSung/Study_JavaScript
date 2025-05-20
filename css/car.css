@@ -1,0 +1,22 @@
+    /* 스타일 적용 */
+    #carZone {
+        /* border: 1px solid blue; */
+        width: 600px;
+        margin: auto;
+    }
+    #carZone h1, #carZone p { text-align: center; }
+    #car {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #car th, #car td {
+        border: 1px solid black;
+        text-align: center;
+    }
+    #car thead { background-color: gray; }
+    #totalTxt { background-color: gray; }
+    #total {
+        border: none;
+        text-align: center;
+        font-size: 1.5em;
+    }
