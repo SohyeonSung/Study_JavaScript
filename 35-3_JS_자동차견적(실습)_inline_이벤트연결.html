@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>자동차 견적</title>
+<style>
+    /* 스타일 적용 */
+    #carZone {
+        /* border: 1px solid blue; */
+        width: 600px;
+        margin: auto;
+    }
+    #carZone h1, #carZone p { text-align: center; }
+    #car {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #car th, #car td {
+        border: 1px solid black;
+        text-align: center;
+    }
+    #car thead { background-color: gray; }
+    #totalTxt { background-color: gray; }
+    #total {
+        border: none;
+        text-align: center;
+        font-size: 1.5em;
+    }
+</style>    
+<script>
+    /*(실습) 옵션 선택에 따라 차량금액 변경처리
+    기본차량가액에서 시작해서 옵션금액 변경시 차량금액 변경하기
+    - 체크상태 : 옵션 금액 더하기
+    - 체크해제 : 옵션 금액 빼기
+    ***************************/
+    function computeOpt(obj) {
+        console.log("this : " + this); // window 객체
+        console.log("obj.id : " + obj.id);
+        let totalTag = document.getElementById("total");
+        let totalValue = parseInt(totalTag.value); 
+        
+        if (obj.checked) { // 옵션금액 더하기
+            totalValue += parseInt(obj.value);
+        } else { // 옵션금액 빼기
+            totalValue -= parseInt(obj.value);
+        }
+        //화면에 표시
+        totalTag.value = totalValue;
+    }
+</script>    
+</head>
+<body>
+
+<div id="carZone">
+    <h1>자동차견적</h1>
+    <p>
+        <img src="images/car1.jpg" alt="자동차이미지">
+    </p>
+    <table id="car">
+        <colgroup>
+            <col width="50%">
+            <col width="30%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>옵션</th>
+                <th>추가가격</th>
+                <th>옵션선택</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>인조가죽시트</td>
+                <td>300000</td>
+                <td>
+                    <input type="checkbox" name="opt1" value="300000" id="opt1" class="opt" onclick="computeOpt(this)">
+                </td>
+            </tr>
+            <tr>
+                <td>네비게이션</td>
+                <td>400000</td>
+                <td>
+                    <input type="checkbox" name="opt2" value="400000" id="opt2" class="opt" onclick="computeOpt(this)">
+                </td>
+            </tr>
+            <tr>
+                <td>썬루프</td>
+                <td>500000</td>
+                <td>
+                    <input type="checkbox" name="opt3" value="500000" id="opt3" class="opt" onclick="computeOpt(this)">
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td id="totalTxt">차량금액(옵션포함)</td>
+                <td colspan="2">
+                    <input type="text" name="total" value="20000000" id="total" readonly>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body>
+</html>
+
+
+
+
+
